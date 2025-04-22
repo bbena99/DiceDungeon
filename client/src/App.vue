@@ -1,47 +1,23 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script setup lang="ts">
+import { ref } from "vue";
+import  NavBar  from "./components/NavBar.vue";
+
+const theme = ref(localStorage.getItem('theme')??'light');
+const secondary = ref(localStorage.getItem('Theme')??'');
+const setTheme = (newTheme:string)=>{
+  localStorage.setItem('theme',newTheme);
+  theme.value=newTheme;
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div :class="[theme,secondary]" class=" font-sans">
+    <NavBar :theme :setTheme :secondary :setSecondary/>
+    <div class="w-screen bg-gradient-to-b from-bg1 to-bg2 text-text overflow-y-scroll"style="height: calc(100vh - 5rem);">
+      <RouterView/>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>

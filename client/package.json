@@ -1,19 +1,37 @@
 {
   "name": "client",
-  "version": "0.0.0",
   "private": true,
+  "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "vite --host",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "start": "npm run dev"
   },
   "dependencies": {
-    "vue": "^3.5.13"
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@primevue/themes": "^4.1.1",
+    "axios": "^1.7.7",
+    "client": "file:",
+    "flowbite": "^2.5.2",
+    "primevue": "^4.1.1",
+    "tailwindcss-primeui": "^0.3.4",
+    "vue": "^3.5.12",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
-    "vite": "^6.2.4",
-    "vite-plugin-vue-devtools": "^7.7.2"
+    "@vitejs/plugin-vue": "^5.1.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "~5.6.2",
+    "unplugin-vue-router": "^0.10.8",
+    "vite": "^6.2.0",
+    "vue-tsc": "^2.1.6"
   }
 }
